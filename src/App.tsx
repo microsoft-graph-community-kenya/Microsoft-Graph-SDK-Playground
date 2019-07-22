@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Editor } from './editor';
 import './App.css';
+import { Editor } from './editor';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Editor />
     </div>
   );
