@@ -16,7 +16,7 @@ export function Editor() {
         <div>
             <MonacoEditor
                 width={800}
-                height={600}
+                height='90vh'
                 editorDidMount={editorDidMount}
                 onChange={onChange}
                 language='csharp'

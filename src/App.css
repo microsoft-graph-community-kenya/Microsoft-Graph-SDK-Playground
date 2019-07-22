@@ -1,3 +1,24 @@
 .App {
-  
+  display: flex;
+}
+
+.code-editor {
+    width: 50%;
+    height: 100vh;
+    border-right: 1px solid #696969;
+}
+
+.response-editor {
+    height: 100vh;
+    width: 50%;
+}
+
+.toolbar {
+    display: flex;
+    border-right: 1px solid black;
+    width: 100%;
+    height: 40px;
+    background: #0F6EBE;
+    color: white;
+    align-items: center;
 }
