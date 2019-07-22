@@ -275,6 +275,7 @@ module.exports = function (webpackEnv) {
         'react-native': 'react-native-web',
       },
       plugins: [
+
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
         // guards against forgotten dependencies and such.
         PnpWebpackPlugin,
@@ -476,6 +477,9 @@ module.exports = function (webpackEnv) {
       ],
     },
     plugins: [
+      new MonacoWebpackPlugin({
+        languages: ['json', 'javascript', 'csharp']
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
@@ -580,9 +584,6 @@ module.exports = function (webpackEnv) {
           // public/ and not a SPA route
           new RegExp('/[^/]+\\.[^/]+$'),
         ],
-      }),
-      new MonacoWebpackPlugin({
-        languages: ['javascript']
       }),
       // TypeScript type checking
       useTypeScript &&

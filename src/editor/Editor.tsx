@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
 export function Editor() {
-    const [code, setCode] = useState('// type your code here');
+    const [code, setCode] = useState(`var hello = 'world'`);
 
     function editorDidMount(editor: any) {
         editor.focus();
+    }
+
+    function onChange(newValue: any, e: any) {
+        setCode(newValue);
     }
 
     return (
@@ -14,6 +18,7 @@ export function Editor() {
                 width={800}
                 height={600}
                 editorDidMount={editorDidMount}
+                onChange={onChange}
                 language='csharp'
                 value={code}
             />
