@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
-interface IResponseProps {
+interface IConsoleProps {
     response: string;
 }
-export function ResponseEditor({ response }: IResponseProps) {
+export function Console({ response }: IConsoleProps) {
     const [code, setCode] = useState(`{ "hello": "world" }`);
 
     function editorDidMount(editor: any) {
@@ -39,6 +39,7 @@ export function ResponseEditor({ response }: IResponseProps) {
                 onChange={onChange}
                 language='json'
                 value={response}
+                options={{ renderLineHighlight: 'none' }}
             />
         </div>
     );

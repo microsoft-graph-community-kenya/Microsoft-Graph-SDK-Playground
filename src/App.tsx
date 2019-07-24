@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import './App.css';
+import { Console } from './console';
 import { Editor } from './editor';
-import { ResponseEditor } from './response';
 
 function App() {
   const [response, setResponse] = useState('');
@@ -16,9 +16,7 @@ function App() {
     });
 
     const text = await resp.text();
-
     setResponse(text);
-
   }
 
   function handleSetCode(codeFromEditor: string): void {
@@ -36,11 +34,11 @@ function App() {
         </div>
         <Editor onCode={handleSetCode} code={code} />
       </div>
-      <div className='response-editor'>
+      <div className='console'>
         <div className='toolbar'>
-          <p style={{ paddingLeft: 10 }}>Response</p>
+          <p style={{ paddingLeft: 10 }}>Console</p>
         </div>
-        <ResponseEditor response={response}/>
+        <Console response={response}/>
       </div>
     </div>
   );
