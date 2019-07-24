@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
-export function ResponseEditor() {
+interface IResponseProps {
+    response: string;
+}
+export function ResponseEditor({ response }: IResponseProps) {
     const [code, setCode] = useState(`{ "hello": "world" }`);
 
     function editorDidMount(editor: any) {
@@ -19,7 +22,6 @@ export function ResponseEditor() {
     function formatDocument(editor: any) {
         const editorAction = editor.getAction('editor.action.formatDocument');
         if (editorAction) {
-            console.log(editorAction);
             editorAction.run();
         }
     }
@@ -36,7 +38,7 @@ export function ResponseEditor() {
                 editorDidMount={editorDidMount}
                 onChange={onChange}
                 language='json'
-                value={code}
+                value={response}
             />
         </div>
     );

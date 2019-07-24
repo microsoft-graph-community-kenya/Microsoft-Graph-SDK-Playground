@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
-export function Editor() {
-    const [code, setCode] = useState(`var hello = 'world'`);
+interface IEditorProps {
+    onCode: Function;
+    code: string;
+}
 
+export function Editor({ onCode, code }: IEditorProps) {
     function editorDidMount(editor: any) {
         editor.focus();
     }
 
     function onChange(newValue: any, e: any) {
-        setCode(newValue);
+        onCode(newValue);
     }
 
     return (
