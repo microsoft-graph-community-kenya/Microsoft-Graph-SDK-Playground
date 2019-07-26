@@ -12,16 +12,16 @@ const languages = {
 
 System.out.println(user.displayName);
       `,
-    url: 'https://ms-graph-playground-backend.azurewebsites.net/api/playground/java',
+    url: 'http://51.105.174.176/api/playground/java',
   },
   csharp: {
     snippet: `var user = await graphClient.Me
   .Request()
   .GetAsync();
 
-Console.WriteLine(user.displayName);
+Console.WriteLine(user.DisplayName);
       `,
-    url: 'https://ms-graph-playground-backend.azurewebsites.net/api/playground/csharp',
+    url: 'http://51.105.174.176/api/playground/csharp',
   },
 };
 
@@ -31,7 +31,7 @@ function App() {
   const [language, setLanguage] = useState(languages.csharp);
 
   async function handleRunCode() {
-    setResponse('Compiling...');
+    setResponse('Compiling ...');
     const resp = await fetch(language.url, {
       method: 'POST',
       body: code,
